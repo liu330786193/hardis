@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/apps")
-public class Controller {
+public class AppController {
 
     @Autowired
     private AppService appService;
@@ -32,7 +32,8 @@ public class Controller {
     @RequestMapping(value = "", method = RequestMethod.POST)
     public App create(@RequestBody AppModel appModel) {
         App app = transformToApp(appModel);
-        App createdApp = appService.
+        App createdApp = appService.createAppInLocal(app);
+
     }
 
     private App transformToApp(AppModel appModel){
